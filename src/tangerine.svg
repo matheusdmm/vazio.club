@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Main radial gradient for the fruit body -->
+    <radialGradient id="fruitGrad" cx="38%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#FFB347"/>
+      <stop offset="50%" stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#C45900"/>
+    </radialGradient>
+
+    <!-- Subtle segment overlay gradient -->
+    <radialGradient id="shineGrad" cx="35%" cy="30%" r="45%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Leaf gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6BBF45"/>
+      <stop offset="100%" stop-color="#3A8A1C"/>
+    </linearGradient>
+
+    <clipPath id="circleClip">
+      <circle cx="50" cy="55" r="37"/>
+    </clipPath>
+  </defs>
+
+  <!-- Fruit body -->
+  <circle cx="50" cy="55" r="37" fill="url(#fruitGrad)"/>
+
+  <!-- Segment lines (subtle peel texture) -->
+  <g clip-path="url(#circleClip)" stroke="#C45900" stroke-width="0.8" stroke-opacity="0.35" fill="none">
+    <line x1="50" y1="18" x2="50" y2="92"/>
+    <line x1="13" y1="55" x2="87" y2="55"/>
+    <line x1="22" y1="29" x2="78" y2="81"/>
+    <line x1="78" y1="29" x2="22" y2="81"/>
+    <line x1="18" y1="42" x2="82" y2="68"/>
+    <line x1="82" y1="42" x2="18" y2="68"/>
+  </g>
+
+  <!-- Shine overlay -->
+  <circle cx="50" cy="55" r="37" fill="url(#shineGrad)"/>
+
+  <!-- Stem -->
+  <path d="M50 19 Q51 14 52 11" stroke="#5A3A1A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+  <!-- Leaf -->
+  <path d="M52 14 Q62 6 68 12 Q60 18 52 14Z" fill="url(#leafGrad)"/>
+  <!-- Leaf midrib -->
+  <path d="M52 14 Q60 12 67 12" stroke="#2E6B10" stroke-width="0.7" fill="none" stroke-linecap="round"/>
+</svg>

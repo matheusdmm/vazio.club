@@ -11,5 +11,5 @@ bun.lockb
 .DS_Store
 Thumbs.db
 
-app.js
+src/app.js
 
