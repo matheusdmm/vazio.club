@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "None",
+    "strict": true,
+    "outFile": "main.js",
+    "removeComments": false
+  },
+  "include": ["main.ts"]
+}
