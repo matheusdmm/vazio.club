@@ -3,8 +3,8 @@
     "target": "ES2017",
     "module": "None",
     "strict": true,
-    "outFile": "main.js",
+    "outFile": "app.js",
     "removeComments": false
   },
-  "include": ["main.ts"]
+  "include": ["app.ts"]
 }

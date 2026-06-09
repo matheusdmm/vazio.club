@@ -1,13 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
 /* ─── tokens ─────────────────────────────────────────── */
 :root {
   --bg:        #07050300;
   --bg-solid:  #070503;
-  --fg:        #e8721a;
+  --fg:        #fa9b53;
   --fg-dim:    #7a3c0e;
-  --fg-bright: #ffaa48;
+  --fg-bright: #f1bc7e;
   --glow-a:    rgba(232, 114, 26, 0.35);
   --glow-b:    rgba(232, 114, 26, 0.08);
-  --font:      'Courier New', Courier, monospace;
+  --font:      'Fira Code', 'Courier New', monospace;
 }
 
 /* ─── reset ──────────────────────────────────────────── */
@@ -42,8 +44,8 @@ html, body {
     to bottom,
     transparent 0px,
     transparent 3px,
-    rgba(0, 0, 0, 0.13) 3px,
-    rgba(0, 0, 0, 0.13) 4px
+    rgba(0, 0, 0, 0.06) 3px,
+    rgba(0, 0, 0, 0.03) 4px
   );
   pointer-events: none;
   z-index: 20;
@@ -56,8 +58,8 @@ html, body {
   inset: 0;
   background: radial-gradient(
     ellipse at 50% 50%,
-    transparent 45%,
-    rgba(0, 0, 0, 0.72) 100%
+    transparent 55%,
+    rgba(0, 0, 0, 0.45) 100%
   );
   pointer-events: none;
   z-index: 21;
@@ -71,8 +73,6 @@ html, body {
   gap: 2.6rem;
   position: relative;
   z-index: 5;
-  /* gentle float */
-  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -88,10 +88,9 @@ html, body {
   white-space: pre;
   color: var(--fg);
   text-shadow:
-    0 0 6px  var(--glow-a),
-    0 0 18px var(--glow-a),
-    0 0 45px var(--glow-b);
-  animation: art-pulse 4s ease-in-out infinite;
+    0 0 4px  var(--glow-a),
+    0 0 12px var(--glow-b);
+  animation: art-pulse 4s ease-in-out infinite, float 6s ease-in-out infinite;
   user-select: none;
   letter-spacing: 0;
 }
@@ -106,10 +105,9 @@ html, body {
   }
   50% {
     text-shadow:
-      0 0 8px  rgba(232, 114, 26, 0.55),
-      0 0 28px rgba(232, 114, 26, 0.45),
-      0 0 70px rgba(232, 114, 26, 0.18);
-    opacity: 0.92;
+      0 0 6px  rgba(232, 114, 26, 0.4),
+      0 0 18px rgba(232, 114, 26, 0.15);
+    opacity: 0.94;
   }
 }
 
@@ -137,24 +135,22 @@ html, body {
   text-transform: lowercase;
   opacity: 0.6;
   user-select: none;
-  margin-top: -1.4rem;
 }
 
-/* ─── blinking cursor ────────────────────────────────── */
-.cursor {
-  color: var(--fg-bright);
-  animation: blink 1.1s step-start infinite;
-  margin-left: 1px;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+/* ─── console frame ──────────────────────────────────── */
+.console-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.8rem;
+  border: 1px solid var(--fg-dim);
+  box-shadow: 0 0 10px rgba(232, 114, 26, 0.08);
 }
 
 /* ─── flicker (very subtle) ──────────────────────────── */
 body {
-  animation: flicker 8s linear infinite;
+  animation: flicker 32s linear infinite;
 }
 
 @keyframes flicker {
