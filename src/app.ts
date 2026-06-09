@@ -1,4 +1,4 @@
-// vazio.club — tangerine ASCII animation
+// vazio.club — beholder ASCII animation
 
 interface AnimatorOptions {
   frames: readonly string[];
@@ -35,81 +35,96 @@ function createAnimator(el: HTMLElement, opts: AnimatorOptions): Animator {
 }
 
 // ── frames ────────────────────────────────────────────────────────────────────
-// Each frame is 12 lines. Characters that change across frames are marked below.
-// Line  2: leaf direction  | / | \
-// Line  8: navel char      O o 0 o
-// Line  6/10: segment hub  + + X +
+// Each frame is 15 lines. Characters that change across frames are marked below.
+// Line  6: central eye pupil  @ / @> / --- / (O) / @@@
+// Line  1: eyestalk tips      o ^ o ^ o  /  o o ^ o o  (frame 3)
+// Lines 13-15: maw            wider in frame 4
 
 const FRAMES: readonly string[] = [
-/* 0 – rest */
-`       ,~,
-      ( | )
-       '|'
-    .-------.
-  .'    |    '.
- /   .--+--.   \\
-|  .'   |   '.  |
-| |  . (O) .  | |
-|  '.   |   .'  |
- \\   '--+--'   /
-  '.    |    .'
-    '-------'`,
+/* 0 – rest, eye centred */
+`      o   o   o
+       \\  |  /
+    o---( ~~~ )---o
+   /   /       \\   \\
+  |  o(  .---.  )o  |
+  |  |(  | @ |  )|  |
+  |  o(  '---'  )o  |
+   \\   \\       /   /
+    o---( ~~~ )---o
+       /  |  \\
+      o   |   o
+          |
+       .-------.
+      | v v v v |
+       '-------'`,
 
-/* 1 – tilt right */
-`       ,~,
-      ( / )
-       '|'
-    .-------.
-  .'    |    '.
- /   .--+--.   \\
-|  .'   |   '.  |
-| |  . (o) .  | |
-|  '.   |   .'  |
- \\   '--+--'   /
-  '.    |    .'
-    '-------'`,
+/* 1 – eye drifts right */
+`      o   o   o
+       \\  |  /
+    o---( ~~~ )---o
+   /   /       \\   \\
+  |  o(  .---.  )o  |
+  |  |(  |  @|  )|  |
+  |  o(  '---'  )o  |
+   \\   \\       /   /
+    o---( ~~~ )---o
+       /  |  \\
+      o   |   o
+          |
+       .-------.
+      | v v v v |
+       '-------'`,
 
-/* 2 – glow peak */
-`       ,~,
-      ( | )
-       '|'
-    .-------.
-  .'    |    '.
- /   .--X--.   \\
-|  .'   |   '.  |
-| |  . (0) .  | |
-|  '.   |   .'  |
- \\   '--X--'   /
-  '.    |    .'
-    '-------'`,
+/* 2 – blink */
+`      o   o   o
+       \\  |  /
+    o---( ~~~ )---o
+   /   /       \\   \\
+  |  o(  .---.  )o  |
+  |  |(  |---|  )|  |
+  |  o(  '---'  )o  |
+   \\   \\       /   /
+    o---( ~~~ )---o
+       /  |  \\
+      o   |   o
+          |
+       .-------.
+      | v v v v |
+       '-------'`,
 
-/* 3 – tilt left */
-`       ,~,
-      ( \\ )
-       '|'
-    .-------.
-  .'    |    '.
- /   .--+--.   \\
-|  .'   |   '.  |
-| |  . (o) .  | |
-|  '.   |   .'  |
- \\   '--+--'   /
-  '.    |    .'
-    '-------'`,
+/* 3 – iris dilates, stalks cluster */
+`      o  o   o  o
+       \\ \\   / /
+    o---( ~~~ )---o
+   /   /       \\   \\
+  |  o(  .---.  )o  |
+  |  |(  |(O)|  )|  |
+  |  o(  '---'  )o  |
+   \\   \\       /   /
+    o---( ~~~ )---o
+       /  |  \\
+      o   |   o
+          |
+       .-------.
+      | v v v v |
+       '-------'`,
 
-/* 4 – wide-open */
-`       ,~,
-      ( | )
-       '|'
-    .-------.
-  .'    |    '.
- /   .--*--.   \\
-|  .'   |   '.  |
-| |  . (O) .  | |
-|  '.   |   .'  |
- \\   '--*--'   /
-  '.    |    .'
-    '-------'`,
+/* 4 – all eyes wide, maw gapes */
+`      o   o   o
+       \\  |  /
+    o---( ~~~ )---o
+   /   /       \\   \\
+  |  o(  .---.  )o  |
+  |  |(  |@@@|  )|  |
+  |  o(  '---'  )o  |
+   \\   \\       /   /
+    o---( ~~~ )---o
+       /   |   \\
+      o    |    o
+           |
+      .---------.
+     | v v v v v |
+      '---------'`,
 ];
 
 // ── boot ──────────────────────────────────────────────────────────────────────
